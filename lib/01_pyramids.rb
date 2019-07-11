@@ -28,9 +28,7 @@ def ask_for_h8
 	return size
 end
 
-def print_pyramid(size)
-	
-
+def top_pyramid(size)
 	i = 0
 	j = 1
 
@@ -48,13 +46,43 @@ def print_pyramid(size)
 	end while i < size
 end
 
-def full_pyramid
-	size = ask_for_h8
+def bottom_pyramid(size)
+	i = 0
+	j = size 
+
+	begin
+		begin
+			if j >= size - i
+				print " "
+			else print "#"
+			end
+	    j = j - 1
+		end while j >= i - size + 1 
+		j = size
+		i = i + 1
+		puts ""
+	end while i < size
+end
+
+def full_pyramid(size)
 	if size % 2 == 0
 		puts "get lost"
 	else	
-		print_pyramid(size)
+		top_pyramid(size)
 	end
 end	
 
-full_pyramid
+def	wtf_pyramid
+	size = ask_for_h8
+	if size % 2 == 0
+		puts "get lost"
+	else
+		top = (size + 1) / 2
+		bottom = (size - 1 ) / 2
+	
+	top_pyramid(top)
+	bottom_pyramid(bottom)
+	end
+end
+
+wtf_pyramid
